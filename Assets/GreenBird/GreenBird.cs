@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GreenBird
 {
@@ -10,11 +11,18 @@ namespace GreenBird
         {
             _initialPosition = transform.position;
         }
+
+        private void Update()
+        {
+            if (!(transform.position.y > 10)) return;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         private void OnMouseUp()
         {
             Vector2 toDirection = _initialPosition - transform.position;
             var rigidBody = GetComponent<Rigidbody2D>();
-            rigidBody.AddForce(toDirection * 100);
+            rigidBody.AddForce(toDirection * 600);
             rigidBody.gravityScale = 1;
         }
         private void OnMouseDrag()
