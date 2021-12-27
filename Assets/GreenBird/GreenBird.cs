@@ -18,14 +18,20 @@ namespace GreenBird
 
         private void Update()
         {
+            ShowPathHint();
             TrackStillness();
-
             if (ShouldReloadScene())
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        private void OnMouseDown()
+        {
+            GetComponent<LineRenderer>().enabled = true;
+        }
+
         private void OnMouseUp()
         {
+            GetComponent<LineRenderer>().enabled = false;
             Vector2 toDirection = _initialPosition - transform.position;
             var rigidBody = GetComponent<Rigidbody2D>();
             rigidBody.AddForce(toDirection * launchPower);
@@ -38,6 +44,13 @@ namespace GreenBird
             if (Camera.main == null) return;
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
+        }
+
+        private void ShowPathHint()
+        {
+            var lineRenderer = GetComponent<LineRenderer>();
+            lineRenderer.SetPosition(0, _initialPosition);
+            lineRenderer.SetPosition(1, transform.position);
         }
 
         private void TrackStillness()
