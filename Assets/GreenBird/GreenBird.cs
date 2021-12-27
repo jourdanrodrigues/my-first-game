@@ -24,21 +24,6 @@ namespace GreenBird
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        private void TrackStillness()
-        {
-            if (!_wasLaunched) return;
-            if (GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1)
-                _timeStill += Time.deltaTime;
-            else
-                _timeStill = 0;
-        }
-
-        private bool ShouldReloadScene()
-        {
-            var position = transform.position;
-            return (position.y is > 10 or < -10 || position.x is > 10 or < -10 || _timeStill > 3);
-        }
-
         private void OnMouseUp()
         {
             Vector2 toDirection = _initialPosition - transform.position;
@@ -53,6 +38,21 @@ namespace GreenBird
             if (Camera.main == null) return;
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
+        }
+
+        private void TrackStillness()
+        {
+            if (!_wasLaunched) return;
+            if (GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1)
+                _timeStill += Time.deltaTime;
+            else
+                _timeStill = 0;
+        }
+
+        private bool ShouldReloadScene()
+        {
+            var position = transform.position;
+            return (position.y is > 10 or < -10 || position.x is > 10 or < -10 || _timeStill > 3);
         }
     }
 }
