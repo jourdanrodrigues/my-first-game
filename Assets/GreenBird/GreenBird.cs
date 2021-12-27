@@ -19,11 +19,11 @@ namespace GreenBird
         private void Update()
         {
             TrackStillness();
-            
+
             if (ShouldReloadScene())
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        
+
         private void TrackStillness()
         {
             if (!_wasLaunched) return;
@@ -38,7 +38,7 @@ namespace GreenBird
             var position = transform.position;
             return (position.y is > 10 or < -10 || position.x is > 10 or < -10 || _timeStill > 3);
         }
-        
+
         private void OnMouseUp()
         {
             Vector2 toDirection = _initialPosition - transform.position;
@@ -47,7 +47,7 @@ namespace GreenBird
             rigidBody.gravityScale = 1;
             _wasLaunched = true;
         }
-        
+
         private void OnMouseDrag()
         {
             if (Camera.main == null) return;
