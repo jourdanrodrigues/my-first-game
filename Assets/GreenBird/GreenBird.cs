@@ -1,22 +1,25 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace GreenBird
 {
     public class GreenBird : MonoBehaviour
     {
-        private void OnMouseDown()
+        private Vector3 _initialPosition;
+        
+        private void Awake()
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
+            _initialPosition = transform.position;
         }
         private void OnMouseUp()
         {
-            GetComponent<SpriteRenderer>().color = Color.white;
+            Vector2 toDirection = _initialPosition - transform.position;
+            var rigidBody = GetComponent<Rigidbody2D>();
+            rigidBody.AddForce(toDirection * 100);
+            rigidBody.gravityScale = 1;
         }
         private void OnMouseDrag()
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
         }
     }
