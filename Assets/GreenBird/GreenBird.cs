@@ -49,8 +49,8 @@ namespace GreenBird
         private void ShowPathHint()
         {
             var lineRenderer = GetComponent<LineRenderer>();
-            lineRenderer.SetPosition(0, _initialPosition);
-            lineRenderer.SetPosition(1, transform.position);
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, _initialPosition);
         }
 
         private void TrackStillness()
@@ -65,7 +65,7 @@ namespace GreenBird
         private bool ShouldReloadScene()
         {
             var position = transform.position;
-            return (position.y is > 10 or < -10 || position.x is > 10 or < -10 || _timeStill > 3);
+            return position.y is > 10 or < -10 || position.x is > 10 or < -10 || _timeStill > 3;
         }
     }
 }
