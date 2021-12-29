@@ -49,8 +49,8 @@ namespace GreenBird
         private void ShowPathHint()
         {
             var lineRenderer = GetComponent<LineRenderer>();
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, _initialPosition);
+            lineRenderer.SetPosition(1, transform.position);
+            lineRenderer.SetPosition(0, _initialPosition);
         }
 
         private void TrackStillness()
