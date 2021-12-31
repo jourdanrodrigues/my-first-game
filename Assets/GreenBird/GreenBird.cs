@@ -65,7 +65,7 @@ namespace GreenBird
         private bool ShouldReloadScene()
         {
             var position = transform.position;
-            return position.y is > 10 or < -10 || position.x is > 10 or < -10 || _timeStill > 3;
+            return position.y is > 10 or < -10 || position.x is > 20 or < -20 || _timeStill > 3;
         }
     }
 }
