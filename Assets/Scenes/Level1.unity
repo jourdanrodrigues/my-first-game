@@ -742,7 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06dcaf4d7961485459c66835100502c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cloudParticlesPrefab: {fileID: 5274786725968818585, guid: 0671880590b5d3e42b8d112366d2f4d1, type: 3}
+  cloudParticlesPrefab: {fileID: 5274786725968818585, guid: 0671880590b5d3e42b8d112366d2f4d1, type: 3}
 --- !u!1 &757701899
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +939,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771897835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.37650013, y: -2.141, z: -12}
+  m_LocalPosition: {x: -0.3765003, y: -2.141, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1781,7 +1781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06dcaf4d7961485459c66835100502c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cloudParticlesPrefab: {fileID: 5274786725968818585, guid: 0671880590b5d3e42b8d112366d2f4d1, type: 3}
+  cloudParticlesPrefab: {fileID: 5274786725968818585, guid: 0671880590b5d3e42b8d112366d2f4d1, type: 3}
 --- !u!1 &1978824974
 GameObject:
   m_ObjectHideFlags: 0
